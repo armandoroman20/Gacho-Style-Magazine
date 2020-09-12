@@ -3,16 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Gacho Style</title>
-  <link rel="stylesheet" href="/static/css/gacho-style.css">
+<!--  <link rel="stylesheet" th:href="@{/static/css/gacho-style.css}">-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/4e791167da.js" crossorigin="anonymous"></script>
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    .parallax {
+      /* The image used */
+      background-image: url("https://www.adorama.com/alc/wp-content/uploads/2017/08/shutterstock_630161714.jpg");
+
+      /* Set a specific height */
+      height: 100%;
+
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
+<div class="parallax">
   <div class="d-none d-md-block d-lg-none ">
     <div>
-      <nav class="mid-nav">
+      <nav class="top-nav">
         <ul id="links" class="navbar-items  d-flex justify-content-end">
           <li class="m-2 d-inline-flex nav-item"><a href="#">ART</a></li>
           <li class="m-2 d-inline-flex nav-item"><a href="#">MUSIC</a></li>
@@ -21,11 +40,11 @@
       </nav>
     </div>
     <div class="main-logo">
-      <img class="gacho-logo" src="../static/images/gacho-logo-2.png" th:src="@{images/gacho-logo-2.png}" alt="gacho-style-logo" width="598"
-           height="400px">
+<!--      <img class="gacho-logo" src="../static/images/gacho-logo-2.png" th:src="@{images/gacho-logo-2.png}" alt="gacho-style-logo" width="598"-->
+<!--           height="400px">-->
       <hr class="my-4">
       <nav class="mid-nav">
-        <ul id="links" class="navbar-items  d-flex justify-content-between">
+        <ul id="links-mid" class="navbar-items  d-flex justify-content-between">
           <li class="p-2 d-inline-flex nav-item"><a href="#">ABOUT</a></li>
           <li class="p-2 d-inline-flex nav-item"><a href="#">ART</a></li>
           <li class="p-2 d-inline-flex nav-item"><a href="#">MUSIC</a></li>
@@ -38,12 +57,12 @@
       </iframe>
     </div>
     <div class="row d-flex justify-content-center">
-      <img src="../static/images/zerk-sweater-2.png" th:src="@{images/zerk-sweater-2.png}" alt="Zerk in a sweater">
+<!--      <img src="../static/images/zerk-sweater-2.png" th:src="@{images/zerk-sweater-2.png}" alt="Zerk in a sweater">-->
       <p>Consectetur reprehenderit magnam nostrum quod reprehenderit. Inventore repellat eum facilis illum dolor
         doloribus, eius quibusdam suscipit delectus vitae. Explicabo beatae vitae quos laborum expedita hic,
         maiores ipsa eaque? Nobis repudiandae!</p>
     </div>
-  </div>
+<!--  </div>-->
   <footer class="page-footer font-small cyan darken-3">
     <div class="container d-flex justify-content-center ">
       <div class="row">
