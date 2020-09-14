@@ -31,7 +31,7 @@ body, html {
     color:#666;
 }
 
-.pimg1, .pimg2, .pimg3, .pimg4{
+.pimg1, .pimg2, .pimg3, .pimg4, .pimg5{
     position:relative;
     opacity:0.70;
     background-position: center;
@@ -51,12 +51,17 @@ body, html {
 }
 
 .pimg3{
-    background-image: url("images/gacho-logo.png");
+    background-image: url("images/open-your-eyes.jpg");
     min-height: 50%;
 }
 
 .pimg4{
     background-image: url("images/clown-cloud.gif");
+    min-height: 80%;
+}
+
+.pimg5{
+    background-image: url("images/gacho-dog.jpg");
     min-height: 100%;
 }
 .section{
@@ -85,7 +90,7 @@ body, html {
     text-transform: uppercase;
 }
 
-.pimg4 .ptext{
+.pimg5 .ptext{
     position: absolute;
     top:95%;
     width:100%;
@@ -112,11 +117,35 @@ body, html {
 /*    background-color: transparent;*/
 /*}*/
 
+.pimg4 .zerkVideo{
+    position: absolute;
+    width:100%;
+    height:100%;
+    /*z-index: -1;*/
+}
+
+@media(min-aspect-ratio: 16/9){
+    .zerkVideo{
+        width:100%;
+        height:auto;
+    }
+}
+
+@media(max-aspect-ratio: 16/9){
+    .zerkVideo{
+        width:auto;
+        height:100%;
+    }
+}
+
 @media(max-width:568px){
     .pimg1, .pimg2, .pimg3, .pimg4{
         background-attachment: scroll;
     }
 }
+
+
+
 
 /*.parallax {*/
 /*    !* The image used *!*/
