@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class shop {
+public class magazine {
 
-    @GetMapping("/shop")
-    public String gachoShop(){
-        return "shop";
+    @GetMapping("/magazine")
+    public String gachoRead(){
+        return "magazine";
     }
 }
