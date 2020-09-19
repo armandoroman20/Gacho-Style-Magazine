@@ -91,7 +91,6 @@ body, html {
 }
 
 
-
 .pimg4 .zerkVideo{
     position: absolute;
     width:100%;
@@ -121,3 +120,9 @@ body, html {
     }
 }
 
+/*monile styling*/
+
+.mobile-navbar{
+    background-color: #282e34;
+    color:#ddd;
+}
