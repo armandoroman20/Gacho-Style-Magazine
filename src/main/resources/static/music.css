@@ -1,0 +1,21 @@
+.audioControl{
+    position: relative;
+    width: 100%
+}
+
+.albumCard{
+    position: relative;
+}
+
+.scrollable{
+    height: 32%;
+    overflow-y: auto;
+}
+
+.albumInfo{
+    height: auto%
+}
+
+.musicLinks{
+    height: 20%
+}

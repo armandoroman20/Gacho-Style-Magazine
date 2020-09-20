@@ -11,18 +11,3 @@ body, html {
     background-size: cover;
 }
 
-.top-nav .navbar-items{
-    background-color: #282e34;
-    color:#ddd;
-    margin-bottom:0;
-}
-
-.magazine{
-    position: relative;
-    margin-top: 6%;
-}
-
-.mobile-navbar{
-    background-color: #282e34;
-    color:#ddd;
-}

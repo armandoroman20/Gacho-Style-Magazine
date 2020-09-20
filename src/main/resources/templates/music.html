@@ -1,22 +1,99 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thyme leaf.org/extras/spring-security" lang="en">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Music</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type='text/css' th:href="@{/music.css}">
+    <link rel="stylesheet" type='text/css' th:href="@{/navbar.css}">
 </head>
 <body>
-<div>
-    <nav class="top-nav">
-        <ul id="links" class="navbar-items  d-flex justify-content-end" >
-            <li class="m-2 d-inline-flex nav-item"><a href="art">ART</a></li>
-            <li class="m-2 d-inline-flex nav-item"><a href="magazine">MAGAZINE</a></li>
-            <li class="m-2 d-inline-flex nav-item"><a href="shop">SHOP</a></li>
-            <li class="m-2 d-inline-flex nav-item"><a href="/">HOME</a></li>
-        </ul>
-    </nav>
-</div>
-<h1>This will be the music page</h1>
+<section>
+    <div class="d-none d-lg-block d-xl-block">
+        <nav class="top-nav navbar-light bg-light">
+            <ul id="links">
+                <li><a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-Icon-Black.png}" title="Gacho icon black" width="100px" height="100px"/></a></li>
+                <li><a href="art"><img th:src="@{/images/art-icon.png}" title="Art Icon" width="100px" height="100px"/></a>
+                </li>
+                <li><a href="magazine"><img th:src="@{/Links/Zine.png}" title="Zine icon" width="50px" height="50px"/></a></li>
+                <li><a href="music"><img th:src="@{/Links/music.png}" title="Muisc icon" width="50px" height="50px"/></a></li>
+                <li><a href="shop"><img th:src="@{/Links/shop.png}" title="shop icon" width="100px" height="100px"/></a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<section>
+    <div class="albumCard d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" th:src="@{/dontworry/Zerktronic-Album-coverDontWorry_080720.jpg}"
+                 alt="Dont worry cover album">
+                <div class="albumInfo">
+                    <h3 class="card-title albumName d-flex justify-content-center">Don't Worry</h3>
+                    <h4 class="card-text artist d-flex justify-content-center">Zerktronic</h4>
+                    <h5 class="year d-flex justify-content-center">2020</h5>
+                </div>
+                <div>
+
+                </div>
+            <ul class="list-group list-group-flush scrollable">
+                <li class="list-group-item ">
+                    <div class="trackTitle d-flex justify-content-center">
+                        <h5>Crying Again</h5>
+                    </div>
+                    <audio class="audioControl" controls>
+                        <source th:src="@{/dontworry/Crying-Again.wav}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                <li class="list-group-item">
+                    <div class="trackTitle d-flex justify-content-center">
+                        <h5>Did they forget you</h5>
+                    </div>
+                    <audio class="audioControl" controls>
+                        <source th:src="@{/dontworry/did-they-forget-you.wav}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                <li class="list-group-item">
+                    <div class="trackTitle d-flex justify-content-center">
+                        <h5>Duce, I'm Out</h5>
+                    </div>
+                    <audio class="audioControl" controls controlsList="nodownload">
+                        <source th:src="@{/dontworry/Duce-Im-out.wav}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                <li class="list-group-item">
+                    <div class="trackTitle d-flex justify-content-center">
+                        <h5>LALA In My Mind</h5>
+                    </div>
+                    <audio class="audioControl" controls controlsList="nodownload">
+                        <source th:src="@{/dontworry/LALA-in-my-mind.wav}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                <li class="list-group-item">
+                    <div class="trackTitle d-flex justify-content-center">
+                        <h5>Latebut still here</h5>
+                    </div>
+                    <audio class="audioControl" controls controlsList="nodownload">
+                        <source th:src="@{/dontworry/Late-but-still-here.wav}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+            </ul>
+            <div class="card-body">
+                <ul>
+                    <li><a class="spotifyLink" href="#"><img th:src="@{/Links/spotify-logo.png}" title="Spotify Link" width="100px" height="100px"/></a></li>
+                    <li><a class="qppleLink" href="#"><img th:src="@{/Links/AppleMusic-logo.png}" title="Apple Link" width="100px" height="100px"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
