@@ -1,3 +1,17 @@
+body, html{
+    height: 100%;
+    margin:0;
+    font-size: 16px;
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.8em;
+    color:#666;
+    background-image: url("images/clown-cloud.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: scroll;
+}
+
 .audioControl{
     position: relative;
     width: 100%
@@ -13,9 +27,18 @@
 }
 
 .albumInfo{
-    height: auto%
+    height: auto;
 }
 
 .musicLinks{
-    height: 20%
+    height: 20%;
+}
+
+.card-body{
+    height: 75px;
+}
+
+.mediaLinks{
+    display: flex;
+    list-style: none;
 }

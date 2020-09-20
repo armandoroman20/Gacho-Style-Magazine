@@ -18,8 +18,9 @@ nav ul li a {
     /*background-color: #ffffff;*/
     display: block;
     line-height: 3em;
-    padding: 1em 3em;
+    padding: 1em 1em;
     text-decoration: none;
+
 }
 nav ul li:first-child {
     margin-right: auto;
@@ -28,4 +29,38 @@ nav ul li:first-child {
 .navbar-items li{
     display: flex;
     justify-content: end;
+}
+
+ul.nav img:hover { color: #ED6EE4 !important; }
+
+.bg-color{
+    background-color: white;
+}
+
+nav li {
+
+    color: red;
+
+    position: relative;
+}
+
+nav li::after {
+    background-color: red;
+    content: "";
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: width 0.35s ease 0s;
+    position: absolute;
+}
+
+nav li:hover::after {
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

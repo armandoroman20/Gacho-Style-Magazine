@@ -9,11 +9,16 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type='text/css' th:href="@{/gacho-style.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/navbar.css}">
+    <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
 
     <script src="https://kit.fontawesome.com/4e791167da.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
+<div class="loader">
+    <img th:src="@{/images/LoadingCat.gif}"  alt="loading-cat">
+    <h3>Loading...</h3>
+</div>
 <a name="top"></a>
 <!--mobile navbar-->
 <div class="d-block d-sm-block d-md-block d-lg-none">
@@ -48,13 +53,14 @@
 </div>
 <!--desktop navbar-->
 <div class="d-none d-lg-block d-xl-block">
-    <nav class="top-nav">
+    <nav class="top-nav navbar-light bg-color">
         <ul id="links">
             <li><a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-Icon-Black.png}" title="Gacho icon black" width="100px" height="100px"/></a></li>
-            <li><a href="art">ART</a></li>
-            <li><a href="magazine">MAGAZINE</a></li>
-            <li><a href="music">MUSIC</a></li>
-            <li><a href="shop">SHOP</a></li>
+            <li><a href="art"><img th:src="@{/Links/art-icon.png}" title="Art Icon" width="90" height="36"/></a>
+            </li>
+            <li><a href="magazine"><img th:src="@{/Links/Zine.png}" title="Zine icon" width="90px" height="36px"/></a></li>
+            <li><a href="music"><img th:src="@{/Links/music.png}" title="Muisc icon" width="90px" height="36px"/></a></li>
+            <li><a href="shop"><img th:src="@{/Links/shop.png}" title="shop icon" width="90" height="36"/></a></li>
         </ul>
     </nav>
 </div>
@@ -141,7 +147,12 @@
         <a href="#top">top of page</a>
     </div>
 </div>
-
+<script>
+    window.addEventListener("load", function(){
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden";
+    })
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
