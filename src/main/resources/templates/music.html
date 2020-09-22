@@ -13,7 +13,7 @@
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
     <script src="https://kit.fontawesome.com/4e791167da.js" crossorigin="anonymous"></script>
     <script>
-        window.addEventListener("load", function(){
+        window.addEventListener("load", function () {
             const loader = document.querySelector(".loader");
             loader.className += " hidden";
         })
@@ -45,86 +45,226 @@
     <div class="d-none d-lg-block d-xl-block">
         <nav class="top-nav navbar-light bg-color">
             <ul id="links">
-                <li><a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-Icon-Black.png}" title="Gacho icon black" width="100px" height="100px"/></a></li>
+                <li><a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-Icon-Black.png}"
+                                                               title="Gacho icon black" width="100px"
+                                                               height="100px"/></a></li>
                 <li><a href="art"><img th:src="@{/Links/art-icon.png}" title="Art Icon" width="90" height="36"/></a>
                 </li>
-                <li><a href="magazine"><img th:src="@{/Links/Zine.png}" title="Zine icon" width="90px" height="36px"/></a></li>
-                <li><a href="music"><img th:src="@{/Links/music.png}" title="Muisc icon" width="90px" height="36px"/></a></li>
+                <li><a href="magazine"><img th:src="@{/Links/Zine.png}" title="Zine icon" width="90px"
+                                            height="36px"/></a></li>
+                <li><a href="music"><img th:src="@{/Links/music.png}" title="Muisc icon" width="90px"
+                                         height="36px"/></a></li>
                 <li><a href="shop"><img th:src="@{/Links/shop.png}" title="shop icon" width="90" height="36"/></a></li>
             </ul>
         </nav>
     </div>
 </section>
 <section>
-    <div class="albumCard d-flex justify-content-center">
-        <div class="card" style="width: 20rem; height: 45rem">
-            <img class="card-img-top" th:src="@{/dontworry/Zerktronic-Album-coverDontWorry_080720.jpg}"
-                 alt="Dont worry cover album">
-                <div class="albumInfo">
-                    <h3 class="card-title albumName d-flex justify-content-center">Don't Worry</h3>
-                    <h4 class="card-text artist d-flex justify-content-center">Zerktronic</h4>
-                    <h5 class="year d-flex justify-content-center">2020</h5>
-                </div>
-                <div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 mt-5">
+                <div class="albumCard d-flex justify-content-center">
+                    <div class="card" style="width: 20rem; height: 45rem">
+                        <img class="card-img-top" th:src="@{/dontworry/Zerktronic-Album-coverDontWorry_080720.jpg}"
+                             alt="Dont worry cover album">
+                        <div class="albumInfo">
+                            <h3 class="card-title albumName d-flex justify-content-center">Don't Worry</h3>
+                            <h4 class="card-text artist d-flex justify-content-center">Zerktronic</h4>
+                            <h5 class="year d-flex justify-content-center">2020</h5>
+                        </div>
+                        <div>
 
+                        </div>
+                        <ul class="list-group list-group-flush scrollable">
+                            <li class="list-group-item ">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Crying Again</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/dontworry/Crying-Again.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Did they forget you</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/dontworry/did-they-forget-you.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Duce, I'm Out</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/dontworry/Duce-Im-out.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>LALA In My Mind</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/dontworry/LALA-in-my-mind.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Latebut still here</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/dontworry/Late-but-still-here.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                        </ul>
+                        <div class="card-body mediaLinks d-flex justify-content-center">
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-spotify fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-apple fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-youtube fa-3x"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            <ul class="list-group list-group-flush scrollable">
-                <li class="list-group-item ">
-                    <div class="trackTitle d-flex justify-content-center">
-                        <h5>Crying Again</h5>
+            </div>
+            <div class="col-sm-4 mt-5">
+                <div class="albumCard d-flex justify-content-center">
+                    <div class="card" style="width: 20rem; height: 45rem">
+                        <img class="card-img-top" th:src="@{/dirtydishes/DirtyDishez.jpg}"
+                             alt="Dont worry cover album">
+                        <div class="albumInfo">
+                            <h3 class="card-title albumName d-flex justify-content-center">Dirty Dishez</h3>
+                            <h4 class="card-text artist d-flex justify-content-center">Zerktronic</h4>
+                            <h5 class="year d-flex justify-content-center">2020</h5>
+                        </div>
+                        <div>
+
+                        </div>
+                        <ul class="list-group list-group-flush scrollable">
+                            <li class="list-group-item ">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Boogie</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/dirtydishes/boogie.mp3}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Mind</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/dirtydishes/mind.mp3}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Ohh Ohh</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/dirtydishes/ohh-ohh.mp3}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>San Anto Groove</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/dirtydishes/san-anto-groove.mp3}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                        </ul>
+                        <div class="card-body mediaLinks d-flex justify-content-center">
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-spotify fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-apple fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-youtube fa-3x"></i>
+                            </a>
+                        </div>
                     </div>
-                    <audio class="audioControl" controls>
-                        <source th:src="@{/dontworry/Crying-Again.wav}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </li>
-                <li class="list-group-item">
-                    <div class="trackTitle d-flex justify-content-center">
-                        <h5>Did they forget you</h5>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5">
+                <div class="albumCard d-flex justify-content-center">
+                    <div class="card" style="width: 20rem; height: 45rem">
+                        <img class="card-img-top" th:src="@{/Brown-Boy-Funk/BrownBoyFunk-TapeCover.jpg}"
+                             alt="Dont worry cover album">
+                        <div class="albumInfo">
+                            <h3 class="card-title albumName d-flex justify-content-center">Brown Boy Funk</h3>
+                            <h4 class="card-text artist d-flex justify-content-center">Zerktronic</h4>
+                            <h5 class="year d-flex justify-content-center">2020</h5>
+                        </div>
+                        <div>
+
+                        </div>
+                        <ul class="list-group list-group-flush scrollable">
+                            <li class="list-group-item ">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Going Outside</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/Brown-Boy-Funk/Goingoutside.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>House Sippin</h5>
+                                </div>
+                                <audio class="audioControl" controls>
+                                    <source th:src="@{/Brown-Boy-Funk/House-Sippin.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Krookies</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/Brown-Boy-Funk/Krookies.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="trackTitle d-flex justify-content-center">
+                                    <h5>Lost 1.1</h5>
+                                </div>
+                                <audio class="audioControl" controls controlsList="nodownload">
+                                    <source th:src="@{/Brown-Boy-Funk/Lost-1-1.wav}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </li>
+                        </ul>
+                        <div class="card-body mediaLinks d-flex justify-content-center">
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-spotify fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-apple fa-3x"></i>
+                            </a>
+                            <a class="btn spotifyLink" href="#">
+                                <i class="fab fa-youtube fa-3x"></i>
+                            </a>
+                        </div>
                     </div>
-                    <audio class="audioControl" controls>
-                        <source th:src="@{/dontworry/did-they-forget-you.wav}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </li>
-                <li class="list-group-item">
-                    <div class="trackTitle d-flex justify-content-center">
-                        <h5>Duce, I'm Out</h5>
-                    </div>
-                    <audio class="audioControl" controls controlsList="nodownload">
-                        <source th:src="@{/dontworry/Duce-Im-out.wav}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </li>
-                <li class="list-group-item">
-                    <div class="trackTitle d-flex justify-content-center">
-                        <h5>LALA In My Mind</h5>
-                    </div>
-                    <audio class="audioControl" controls controlsList="nodownload">
-                        <source th:src="@{/dontworry/LALA-in-my-mind.wav}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </li>
-                <li class="list-group-item">
-                    <div class="trackTitle d-flex justify-content-center">
-                        <h5>Latebut still here</h5>
-                    </div>
-                    <audio class="audioControl" controls controlsList="nodownload">
-                        <source th:src="@{/dontworry/Late-but-still-here.wav}" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </li>
-            </ul>
-            <div class="card-body mediaLinks">
-                    <a class="btn spotifyLink" href="#">
-                        <i class="fab fa-spotify fa-3x"></i>
-                    </a>
-                <a class="btn spotifyLink" href="#">
-                    <i class="fab fa-apple fa-3x"></i>
-                </a>
-                <a class="btn spotifyLink" href="#">
-                    <i class="fab fa-youtube fa-3x"></i>
-                </a>
+                </div>
             </div>
         </div>
     </div>
