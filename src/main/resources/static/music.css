@@ -22,7 +22,7 @@ body, html{
 }
 
 .scrollable{
-    height: 32%;
+    height: 33%;
     overflow-y: auto;
 }
 
@@ -30,15 +30,11 @@ body, html{
     height: auto;
 }
 
-.musicLinks{
-    height: 20%;
-}
 
-.card-body{
-    height: 75px;
-}
+/*.card-body{*/
+/*    height: 75px;*/
+/*}*/
 
 .mediaLinks{
     display: flex;
-    list-style: none;
 }

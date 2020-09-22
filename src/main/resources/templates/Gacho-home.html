@@ -12,12 +12,27 @@
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
 
     <script src="https://kit.fontawesome.com/4e791167da.js" crossorigin="anonymous"></script>
-
+    <script>
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden";
+        })
+        window.addEventListener("load", function () {
+            const loader = document.querySelector(".mobileLoader");
+            loader.className += " mobileHidden";
+        })
+    </script>
 </head>
 <body>
-<div class="loader">
-    <img th:src="@{/images/LoadingCat.gif}"  alt="loading-cat">
-    <h3>Loading...</h3>
+<div class="d-block d-sm-block d-md-block d-lg-none">
+    <div class="mobileLoader">
+        <img th:src="@{/images/LoadingCat.gif}" alt="loading-cat" height="50%" width="225%">
+    </div>
+</div>
+<div class="d-none d-lg-block d-xl-block">
+    <div class="loader">
+        <img th:src="@{/images/LoadingCat.gif}" alt="loading-cat">
+    </div>
 </div>
 <a name="top"></a>
 <!--mobile navbar-->
@@ -147,12 +162,6 @@
         <a href="#top">top of page</a>
     </div>
 </div>
-<script>
-    window.addEventListener("load", function(){
-        const loader = document.querySelector(".loader");
-        loader.className += " hidden";
-    })
-</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
