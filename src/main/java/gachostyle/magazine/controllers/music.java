@@ -9,4 +9,11 @@ public class music {
     public String gachoMusic(){
         return "music";
     }
+
+
+    @GetMapping("/music-player")
+    public String gachoMusicPlayer(){
+        return "musicPlayer";
+    }
+
 }
