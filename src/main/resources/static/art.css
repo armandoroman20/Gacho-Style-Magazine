@@ -1,0 +1,32 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "Greeting Greeting Greeting Greeting"
+    "Pic-1 . pic-3 ."
+    ". pic-2 . pic-4"
+    ". . . .";
+}
+
+.Greeting { grid-area: Greeting; }
+
+.Pic-1 { background-color: yellow;
+}
+
+.pic-2 { grid-area: pic-2;
+    background-color: red
+}
+
+.pic-3 { grid-area: pic-3;
+    background-color: blue
+}
+
+.pic-4 { grid-area: pic-4;
+    background-color: green
+}
+
+.heading {
+    background-color: purple;
+}
