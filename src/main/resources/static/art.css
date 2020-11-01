@@ -12,7 +12,8 @@
 
 .Greeting { grid-area: Greeting; }
 
-.Pic-1 { background-color: yellow;
+.Pic-1 { grid-area: pic-1;
+    background-color: yellow;
 }
 
 .pic-2 { grid-area: pic-2;
