@@ -2,7 +2,6 @@ body, html {
     height: 100%;
     margin:0;
     font-size: 16px;
-    font-family: "lato", sans-serif;
     font-weight: 400;
     line-height: 1.8em;
     background-color:#1c1c1c;
@@ -25,6 +24,29 @@ body, html {
     left: 25%;
 }
 
+.about-large {
+    margin-top: 10%;
+    color: white;
+}
+
+.about-small {
+    margin-top: 10%;
+    color: white;
+}
+
+.about-large h1 {
+    font-size: 6rem;
+    font-family: 'Work Sans', sans-serif;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+.about-small {
+    font-size: 50px;
+    font-family: 'Work Sans', sans-serif;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
 
 .center-block {
     display: block;
