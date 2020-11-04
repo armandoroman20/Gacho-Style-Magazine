@@ -8,22 +8,24 @@ body, html {
     background-color:#1c1c1c;
 }
 
+.zerkVideo-lg {
+    margin-top: 11%;
+}
+
 .video {
     margin-top: 11%;
     margin-bottom: 11%;
 }
 
+
 .video-text {
     position: absolute;
-    top: 10%;
-    left: 30%;
+    margin-top: -10%;
     z-index:1;
-    color: white;
+    display: flex;
+    justify-content: center;
 }
 
-.video-text h1 {
-    font-size: 200px;
-}
 
 .center-block {
     display: block;
@@ -31,4 +33,11 @@ body, html {
     margin-right: auto;
 }
 
+/*mobile video*/
+
+.zerkVideo-sm {
+    margin-top: 25%;
+    width: 100%;
+    height: auto;
+}
 
