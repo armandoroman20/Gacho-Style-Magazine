@@ -8,6 +8,7 @@ public class home {
 
     @GetMapping("/")
     public String gachoHome(){
-        return "Gacho-home";
+//        return "Gacho-home";
+        return "home-two";
     }
 }
