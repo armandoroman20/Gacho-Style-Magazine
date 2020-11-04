@@ -6,7 +6,7 @@
     <title>Home page two</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type='text/css' th:href="@{/gacho-style.css}">
+    <link rel="stylesheet" type='text/css' th:href="@{/home-two.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/navbar.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
     <script>
@@ -76,8 +76,17 @@
         </ul>
     </nav>
 </div>
+<div class="video-text">
+    <h1>Gacho Style</h1>
+</div>
+<div class="video d-flex justify-content-center">
+    <video controls autoplay loop class="zerkVideo">
+        <source th:src="@{../../videos/ZERKTRONIC-DONTWORRY.mp4}" src="/static/videos/ZERKTRONIC-DONTWORRY.mp4"
+                type="video/mp4">
+    </video>
+</div>
 <div class="smiley">
-    <img th:src="@{/images/smiley.gif}" alt="smiley-gif">
+    <img class="center-block" th:src="@{/images/smiley.gif}" alt="smiley-gif" height="25%" width="25%">
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
