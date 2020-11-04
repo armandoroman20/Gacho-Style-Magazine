@@ -9,7 +9,7 @@ body, html {
 }
 
 .zerkVideo-lg {
-    margin-top: 11%;
+    margin-top: 18%;
 }
 
 .video {
@@ -35,7 +35,7 @@ body, html {
 /*mobile video*/
 
 .zerkVideo-sm {
-    margin-top: 25%;
+    margin-top: 18%;
     width: 100%;
     height: auto;
 }
