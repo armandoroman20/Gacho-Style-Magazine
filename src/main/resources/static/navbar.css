@@ -7,16 +7,16 @@
 nav ul li {
     display: inline-block;
     list-style-type: none;
+    font-size: 25px;
 }
 
 nav ul li a {
     color: white;
     /*background-color: #ffffff;*/
     display: block;
-    line-height: 3em;
     padding: 1em 1em;
     text-decoration: none;
-
+    font-family: 'Ceviche One', cursive;
 }
 
 nav ul {
