@@ -8,6 +8,7 @@
     <title>Music</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" type='text/css' th:href="@{/music.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/navbar.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
@@ -42,21 +43,22 @@
     </div>
 </section>
 <section>
+<!--    // desktop navbar-->
     <div class="d-none d-lg-block d-xl-block">
-        <nav class="top-nav navbar-light bg-color">
-            <ul id="links">
-                <li><a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-Icon-Black.png}"
-                                                               title="Gacho icon black" width="100px"
-                                                               height="100px"/></a></li>
-                <li><a href="art"><img th:src="@{/Links/art-icon.png}" title="Art Icon" width="90" height="36"/></a>
-                </li>
-                <li><a href="magazine"><img th:src="@{/Links/Zine.png}" title="Zine icon" width="90px"
-                                            height="36px"/></a></li>
-                <li><a href="music"><img th:src="@{/Links/music.png}" title="Muisc icon" width="90px"
-                                         height="36px"/></a></li>
-                <li><a href="shop"><img th:src="@{/Links/shop.png}" title="shop icon" width="90" height="36"/></a></li>
-            </ul>
-        </nav>
+        <div class="navigation-bar navbar-dark bg-dark">
+            <div id="navigation-container">
+                <a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-icon-White.png}" title="Gacho icon black"
+                                                           width="100px" height="100px"/></a>
+                <nav class="desktop-nav-links">
+                    <ul>
+                        <li><a href="art">Art</a></li>
+                        <li><a href="magazine">Magazine</a></li>
+                        <li><a href="music">Music</a></li>
+                        <li><a href="shop">$hop</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </section>
 <section>
