@@ -17,3 +17,4 @@ public class GachoStyleMagazineApplication extends SpringBootServletInitializer 
         return builder.sources(GachoStyleMagazineApplication.class);
     }
 }
+

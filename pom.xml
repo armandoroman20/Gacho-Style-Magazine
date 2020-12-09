@@ -11,7 +11,7 @@
     <groupId>Gacho-Style</groupId>
     <artifactId>magazine</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Gacho-Style Magazine</name>
     <description>Gacho Style Magazine</description>
 
