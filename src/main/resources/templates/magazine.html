@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thyme leaf.org/extras/spring-security" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,16 +11,17 @@
     <link rel="stylesheet" type='text/css' th:href="@{/magazine.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/navbar.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
-    <script>
-        window.addEventListener("load", function () {
-            const loader = document.querySelector(".loader");
-            loader.className += " hidden";
-        })
-        window.addEventListener("load", function () {
-            const loader = document.querySelector(".mobileLoader");
-            loader.className += " mobileHidden";
-        })
-    </script>
+<!--    <script>-->
+<!--        window.addEventListener("load", function () {-->
+<!--            const loader = document.querySelector(".loader");-->
+<!--            loader.className += " hidden";-->
+<!--        })-->
+<!--        window.addEventListener("load", function () {-->
+<!--            const loader = document.querySelector(".mobileLoader");-->
+<!--            loader.className += " mobileHidden";-->
+<!--        })-->
+<!--    </script>-->
+    <script type="text/javascript" th:src="@{/js/catLoader.js}"></script>
     <script src="https://kit.fontawesome.com/4e791167da.js" crossorigin="anonymous"></script>
     <script>
         window.addEventListener("load", function () {
