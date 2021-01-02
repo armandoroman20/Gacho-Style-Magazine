@@ -12,10 +12,10 @@ public class User {
     @Column(columnDefinition = "INT(10) UNSIGNED")
     private long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false, length = 250)
+    @Column(nullable = false, length = 250, unique = true)
     private String email;
 
     @Column(nullable = false, length = 250)
