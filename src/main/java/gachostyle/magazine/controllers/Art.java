@@ -27,19 +27,24 @@ public class Art {
 
     @GetMapping("/art")
     public String artPage() {
+
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         return "art";
     }
 
 
-    @GetMapping("/art/{id}")
-    public String artForm(@PathVariable("id") long id,Model model) {
+//    @GetMapping("/art/{id}")
+//    public String artForm(@PathVariable("id") long id,Model model) {
 
 
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        User admin = userDao.getOne(loggedInUser.getId());
-        model.addAttribute("admin", admin);
+//        User admin = (User) userDao.findByUsername(loggedInUser.getUsername());
+//
+//        User admin = userDao.getOne(loggedInUser.getId());
+//        model.addAttribute("admin", admin);
 
-        return "art" + admin;
-    }
+//        return "art" + admin;
+//    }
 }
