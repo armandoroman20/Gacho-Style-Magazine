@@ -26,10 +26,12 @@ public class Art {
     }
 
     @GetMapping("/art")
-    public String artPage() {
+    public String artPage(Model model) {
 
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        User admin = userDao.getOne(loggedInUser.getId());
+        model.addAttribute("admin", admin);
         return "art";
     }
 
