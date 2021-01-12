@@ -74,6 +74,11 @@
                     <li><a href="shop">$hop</a></li>
                     <li><a href="music">Music</a></li>
                     <li><a href="magazine">Magazine</a></li>
+                    <li>
+                        <form th:action="@{/logout}" th:method="post">
+                            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -87,6 +92,12 @@
     <div class="pic-3">3</div>
     <div class="pic-4">4</div>
 </div>
+<!--<h1><a th:text="${#authentication.principal.username}"></a></h1>-->
+<h1><a th:if="${admin.id == 1}">
+    Show if logged in
+</a>
+</h1>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
