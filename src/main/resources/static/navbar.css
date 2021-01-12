@@ -8,15 +8,18 @@ nav ul li {
     display: inline-block;
     list-style-type: none;
     font-size: 35px;
+    padding: 1em 1em;
+    text-decoration: none;
+    font-family: 'Sedgwick Ave Display', cursive;
 }
 
 nav ul li a {
     color: white;
     /*background-color: #ffffff;*/
-    display: block;
-    padding: 1em 1em;
-    text-decoration: none;
-    font-family: 'Sedgwick Ave Display', cursive;
+    /*display: block;*/
+    /*padding: 1em 1em;*/
+    /*text-decoration: none;*/
+    /*font-family: 'Sedgwick Ave Display', cursive;*/
 }
 
 nav ul {
