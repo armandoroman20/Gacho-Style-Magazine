@@ -14,6 +14,9 @@ public class Image {
     @Column(length = 50, nullable = true)
     private String image;
 
+    @Column(length = 255, nullable = true)
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
