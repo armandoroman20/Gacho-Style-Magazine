@@ -1,28 +1,22 @@
 package gachostyle.magazine.controllers;
 
-import gachostyle.magazine.models.User;
+import gachostyle.magazine.models.Image;
+import gachostyle.magazine.repositories.ImageRepository;
 import gachostyle.magazine.repositories.Users;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-
 @Controller
 public class Art {
 
+    private ImageRepository imageDao;
     private Users userDao;
 
 
-    public Art(Users userDao) {
+    public Art(Users userDao, ImageRepository imageDao) {
         this.userDao = userDao;
+        this.imageDao = imageDao;
     }
 
     @GetMapping("/art")
@@ -30,11 +24,15 @@ public class Art {
 
 //        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        model.addAttribute("images", new Image());
+
 //        User admin = userDao.getOne(loggedInUser.getId());
 //        model.addAttribute("admin", admin);
         return "art";
     }
 
+    @PostMapping("/art")
+    public String saveImage()
 
 //    @GetMapping("/art/{id}")
 //    public String artForm(@PathVariable("id") long id,Model model) {
