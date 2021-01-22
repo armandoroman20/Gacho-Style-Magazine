@@ -11,9 +11,29 @@
     <link rel="stylesheet" type='text/css' th:href="@{/art.css}">
     <link rel="stylesheet" type='text/css' th:href="@{/catLoader.css}">
     <link rel="stylesheet" href="/static/art.css">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-SDK_VERSION_NUMBER.js"></script>
+    <script src="./s3_photoExample.js"></script>
 
 </head>
 <body>
+<script>
+    var albumBucketName = "BUCKET_NAME";
+    var bucketRegion = "REGION";
+    var IdentityPoolId = "IDENTITY_POOL_ID";
+
+    AWS.config.update({
+        region: bucketRegion,
+        credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        })
+    });
+
+    var s3 = new AWS.S3({
+        apiVersion: "2006-03-01",
+        params: { Bucket: albumBucketName }
+    });
+
+</script>
 <script>
     window.addEventListener("load", function () {
         const loader = document.querySelector(".loader");
