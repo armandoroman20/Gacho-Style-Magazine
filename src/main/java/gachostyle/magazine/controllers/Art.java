@@ -1,8 +1,10 @@
 package gachostyle.magazine.controllers;
 
 import gachostyle.magazine.models.Image;
+import gachostyle.magazine.models.User;
 import gachostyle.magazine.repositories.ImageRepository;
 import gachostyle.magazine.repositories.Users;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,15 +26,24 @@ public class Art {
 
 //        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        model.addAttribute("images", new Image());
+        model.addAttribute("newImage", new Image());
 
 //        User admin = userDao.getOne(loggedInUser.getId());
 //        model.addAttribute("admin", admin);
         return "art";
     }
 
+
     @PostMapping("/art")
-    public String saveImage()
+    public String saveImage(@RequestParam(name = "ownerId") long ownerId, @ModelAttribute Image image){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+        if(loggedInUser.getId() == 1){
+            imageDao.save(image);
+        }
+     return "/art";
+    }
 
 //    @GetMapping("/art/{id}")
 //    public String artForm(@PathVariable("id") long id,Model model) {

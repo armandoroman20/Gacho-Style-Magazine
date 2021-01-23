@@ -103,12 +103,13 @@
 </h1>
 </div>
 <div class="imageForm">
-    <form th:action="@{art}" method="post" th:object="${images}" id="imageForm">
+    <form th:action="@{art}" method="post" th:object="${newImage}" id="imageForm">
+        <input type="text" th:name="ownerId" th:value="${authenticated}">
         <div class="form-group">
             <label for="image_Description"></label>
             <input type="text" class="form-control" id="image_Description"
                    placeholder="Enter a Description"
-                   th:field="*{images}">
+                   th:field="*{description}">
         </div>
     </form>
 </div>
