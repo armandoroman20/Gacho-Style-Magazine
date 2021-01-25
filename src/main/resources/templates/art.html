@@ -103,16 +103,30 @@
 </h1>
 </div>
 <div class="imageForm">
-    <form th:action="@{art}" method="post" th:object="${newImage}" id="imageForm">
-        <input type="text" th:name="ownerId" th:value="${authenticated}">
-        <div class="form-group">
-            <label for="image_Description"></label>
-            <input type="text" class="form-control" id="image_Description"
-                   placeholder="Enter a Description"
-                   th:field="*{description}">
-        </div>
-    </form>
+        <form th:action="@{/art}" method="POST"
+
+              th:object="${image}" id="imageForm">
+
+            <div class="form-group">
+                <label for="description"></label>
+                <input type="text" class="form-control" id="description"
+                       placeholder="Sign My Yearbook"
+                       th:field="*{description}">
+            </div>
+            <div class="container-fluid d-flex justify-content-center">
+                <button class="btn-primary btn-lg" value="Submit" type="submit">Click here to submit
+                </button>
+            </div>
+        </form>
+
+    </div>
 </div>
+<!--<form th:action="@{/art/create}" th:method="post" th:object="${test}">-->
+<!--    Description:-->
+<!--    <input th:field="*{description}" />-->
+<!--    <br />-->
+<!--    <input type="submit" />-->
+<!--</form>-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
