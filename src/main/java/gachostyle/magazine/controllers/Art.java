@@ -56,6 +56,9 @@ public class Art {
 
     @GetMapping("/art")
     public String showCreateForm(Model model) {
+//        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("loggedIn", loggedIn);
+//        model.addAttribute("test", userDao.findAll());
         model.addAttribute("artImages", imageDao.findAll());
         model.addAttribute("image", new Image());
 
