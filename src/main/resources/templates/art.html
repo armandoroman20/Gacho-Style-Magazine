@@ -122,8 +122,25 @@
             <h3 class="Description"><a th:text="${image.description}"></a></h3>
         </div>
     </div>
+<!--    update-->
+    <form
+            th:action="@{/update/{id}(id=${image.id})}"
+            th:object="${image}"
+            method="post">
+        <label for="description">Description</label>
+        <input type="text" th:field="*{description}" id="description" placeholder="Description">
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        <input type="submit" value="Update Description">
+    </form>
+    <a th:href="@{/delete/{id}(id=${image.id})}">Delete</a>
 </div>
 
+
+<!--update-->
+<!--<div class="" th:each="image : ${artImages}">-->
+
+
+<!--</div>-->
 <!--<form th:action="@{/art/create}" th:method="post" th:object="${test}">-->
 <!--    Description:-->
 <!--    <input th:field="*{description}" />-->
