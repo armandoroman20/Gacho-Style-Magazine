@@ -98,6 +98,7 @@
 <!--</a>-->
 <!--</h1>-->
 <div sec:authorize="isAuthenticated()">
+    <h1>Enter new description</h1>
     <div class="imageForm">
         <form th:action="@{/art}" method="POST"
 
@@ -116,12 +117,14 @@
         </form>
     </div>
 </div>
+
 <div class="" th:each="image : ${artImages}">
     <div class="row no-gutters">
         <div class="signerText col-8 mt-2">
             <h3 class="Description"><a th:text="${image.description}"></a></h3>
         </div>
     </div>
+<div sec:authorize="isAuthenticated()">
 <!--    update-->
     <form
             th:action="@{/update/{id}(id=${image.id})}"
@@ -132,7 +135,9 @@
         <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
         <input type="submit" value="Update Description">
     </form>
+<!--    delete-->
     <a th:href="@{/delete/{id}(id=${image.id})}">Delete</a>
+</div>
 </div>
 
 
