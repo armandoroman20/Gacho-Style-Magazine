@@ -9,7 +9,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class Art {
@@ -35,8 +38,6 @@ public class Art {
 ////        model.addAttribute("admin", admin);
 //        return "art";
 //    }
-
-
 
 
 //    @GetMapping("/art/{id}")
@@ -75,7 +76,36 @@ public class Art {
         imageDao.save(image);
         model.addAttribute("newImage", image);
 
-        // save the ad...
+        // save the Image ...
         return "art";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        Image image = imageDao.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid image Id:" + id));
+
+        model.addAttribute("editImage", image);
+        return "art";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") Long id, @Valid Image image,
+                             BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            image.setId(id);
+            return "art";
+        }
+
+        imageDao.save(image);
+        return "redirect:/art";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id, Model model) {
+        Image image = imageDao.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid image Id:" + id));
+        imageDao.delete(image);
+        return "redirect:/art";
     }
 }
