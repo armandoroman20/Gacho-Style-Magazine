@@ -77,7 +77,7 @@ public class Art {
         model.addAttribute("newImage", image);
 
         // save the Image ...
-        return "art";
+        return "redirect:/art";
     }
 
     @GetMapping("/edit/{id}")
