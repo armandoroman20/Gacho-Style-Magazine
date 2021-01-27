@@ -190,10 +190,38 @@
 <!--</a>-->
 <!--</h1>-->
 <div sec:authorize="isAuthenticated()">
-<h1>
-    Show if logged in
-</h1>
+    <div class="imageForm">
+        <form th:action="@{/art}" method="POST"
+
+              th:object="${image}" id="imageForm">
+
+            <div class="form-group">
+                <label for="description"></label>
+                <input type="text" class="form-control" id="description"
+                       placeholder="Enter Description"
+                       th:field="*{description}">
+            </div>
+            <div class="container-fluid d-flex justify-content-center">
+                <button class="btn-primary btn-lg" value="Submit" type="submit">Click here to submit
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
+<div class="" th:each="image : ${artImages}">
+    <div class="row no-gutters">
+        <div class="signerText col-8 mt-2">
+            <h3 class="Description"><a th:text="${image.description}"></a></h3>
+        </div>
+    </div>
+</div>
+
+<!--<form th:action="@{/art/create}" th:method="post" th:object="${test}">-->
+<!--    Description:-->
+<!--    <input th:field="*{description}" />-->
+<!--    <br />-->
+<!--    <input type="submit" />-->
+<!--</form>-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
