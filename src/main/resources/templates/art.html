@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/static/art.css">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-SDK_VERSION_NUMBER.js"></script>
     <script src="./s3_photoExample.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
 
 </head>
 <body>
@@ -24,6 +26,71 @@
     window.addEventListener("load", function () {
         const loader = document.querySelector(".mobileLoader");
         loader.className += " mobileHidden";
+    })
+</script>
+<script>
+    const MAX_IMAGE_SIZE = 1000000
+
+    /* ENTER YOUR ENDPOINT HERE */
+
+    const API_ENDPOINT = 'https://k6fq5oat1m.execute-api.us-east-1.amazonaws.com' // e.g. https://ab1234ab123.execute-api.us-east-1.amazonaws.com/uploads
+
+    new Vue({
+        el: "#app",
+        data: {
+            image: '',
+            uploadURL: ''
+        },
+        methods: {
+            onFileChange (e) {
+                let files = e.target.files || e.dataTransfer.files
+                if (!files.length) return
+                this.createImage(files[0])
+            },
+            createImage (file) {
+                // var image = new Image()
+                let reader = new FileReader()
+                reader.onload = (e) => {
+                    console.log('length: ', e.target.result.includes('data:image/jpeg'))
+                    if (!e.target.result.includes('data:image/jpeg')) {
+                        return alert('Wrong file type - JPG only.')
+                    }
+                    if (e.target.result.length > MAX_IMAGE_SIZE) {
+                        return alert('Image is loo large.')
+                    }
+                    this.image = e.target.result
+                }
+                reader.readAsDataURL(file)
+            },
+            removeImage: function (e) {
+                console.log('Remove clicked')
+                this.image = ''
+            },
+            uploadImage: async function (e) {
+                console.log('Upload clicked')
+                // Get the presigned URL
+                const response = await axios({
+                    method: 'GET',
+                    url: API_ENDPOINT
+                })
+                console.log('Response: ', response)
+                console.log('Uploading: ', this.image)
+                let binary = atob(this.image.split(',')[1])
+                let array = []
+                for (var i = 0; i < binary.length; i++) {
+                    array.push(binary.charCodeAt(i))
+                }
+                let blobData = new Blob([new Uint8Array(array)], {type: 'image/jpeg'})
+                console.log('Uploading to: ', response.uploadURL)
+                const result = await fetch(response.uploadURL, {
+                    method: 'PUT',
+                    body: blobData
+                })
+                console.log('Result: ', result)
+                // Final URL for the user doesn't need the query string params
+                this.uploadURL = response.uploadURL.split('?')[0]
+            }
+        }
     })
 </script>
 <div class="d-block d-sm-block d-md-block d-lg-none">
@@ -93,6 +160,29 @@
     <div class="pic-2">2</div>
     <div class="pic-3">3</div>
     <div class="pic-4">4</div>
+</div>
+<div id="inline" class="card sand-bg offset-1 col-10 mt-5 p-5">
+    <form id="image" th:action="@{/art}" th:method="POST">
+        <label for="fileupload">Select a file to upload</label>
+        <input type="hidden" id="fileupload">
+        <button class=" btn btn-green" id="picker" type="button">Pick file</button>
+        <div id="thumbnail-container"></div>
+        <input class="btn btn-green" type="submit" value="Submit">
+    </form>
+</div>
+<div id="app">
+    <h1>S3 Uploader Test</h1>
+
+    <div v-if="!image">
+        <h2>Select an image</h2>
+        <input type="file" @change="onFileChange">
+    </div>
+    <div v-else>
+        <img :src="image" />
+        <button v-if="!uploadURL" @click="removeImage">Remove image</button>
+        <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
+    </div>
+    <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
 </div>
 <!--<h1><a th:text="${#authentication.principal.username}"></a></h1>-->
 <!--<h1><a th:if="${admin.id == 1}">-->
