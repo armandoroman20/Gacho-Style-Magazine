@@ -67,30 +67,46 @@ public class Art {
     }
 
 
-    @PostMapping("/art")
-    public String create(
-            @RequestParam(name = "description") String description, @ModelAttribute Image newImage, Model model
-    ) {
-        Image image = new Image();
-        image.setDescription(description);
-        imageDao.save(image);
-        model.addAttribute("newImage", image);
+//    @PostMapping("/art")
+//    public String create(
+//            @RequestParam(name = "description") String description, @ModelAttribute Image newImage, Model model
+//    ) {
+//        Image image = new Image();
+//        image.setDescription(description);
+//        imageDao.save(image);
+//        model.addAttribute("newImage", image);
+//
+//        // save the Image ...
+//        return "redirect:/art";
+//    }
 
-        // save the Image ...
+    @GetMapping("/post")
+    public String showPostForm(Image image) {
+        return "art";
+    }
+
+    @PostMapping("/addpost")
+    public String addPost(@Valid Image image, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "art";
+        }
+
+        imageDao.save(image);
         return "redirect:/art";
     }
 
+
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("image", imageDao.getOne(id));
         Image image = imageDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid image Id:" + id));
-
-        model.addAttribute("editImage", image);
+        model.addAttribute("image", image);
         return "art";
     }
 
     @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") Long id, @Valid Image image,
+    public String updatePost(@PathVariable("id") Long id, @Valid Image image,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             image.setId(id);
@@ -102,7 +118,7 @@ public class Art {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id, Model model) {
+    public String deletePost(@PathVariable("id") Long id, Model model) {
         Image image = imageDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid image Id:" + id));
         imageDao.delete(image);
