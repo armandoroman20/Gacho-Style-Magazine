@@ -131,10 +131,10 @@
 <div class="" th:each="image : ${artImages}">
     <div class="row no-gutters">
         <div class="signerText col-8 mt-2">
-            <h3 class="Title"><a th:text="${image.title}"></a></h3>
+            <h3 class="Title">Title: <a th:text="${image.title}"></a></h3>
         </div>
         <div class="signerText col-8 mt-2">
-            <h3 class="Description"><a th:text="${image.description}"></a></h3>
+            <h3 class="Description">Description: <a th:text="${image.description}"></a></h3>
         </div>
     </div>
 <div sec:authorize="isAuthenticated()">
