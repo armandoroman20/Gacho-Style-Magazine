@@ -11,11 +11,15 @@ public class Image {
     @Column(columnDefinition = "INt(10) UNSIGNED")
     private long id;
 
-    @Column(length = 50, nullable = true)
+    @Column(length = 250, nullable = true)
     private String image;
 
     @Column(length = 255, nullable = true)
+    private String title;
+
+    @Column(length = 255, nullable = true)
     private String description;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -24,9 +28,10 @@ public class Image {
     public Image() {
     }
 
-    public Image(long id, String image, String description, User user) {
+    public Image(long id, String image, String title, String description, User user) {
         this.id = id;
         this.image = image;
+        this.title = title;
         this.description = description;
         this.user = user;
     }
@@ -50,6 +55,14 @@ public class Image {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setDescription(String description) {
