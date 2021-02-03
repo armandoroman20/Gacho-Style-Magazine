@@ -11,7 +11,7 @@ public class Image {
     @Column(columnDefinition = "INt(10) UNSIGNED")
     private long id;
 
-    @Column(length = 50, nullable = true)
+    @Column(length = 250, nullable = true)
     private String image;
 
     @Column(length = 255, nullable = true)

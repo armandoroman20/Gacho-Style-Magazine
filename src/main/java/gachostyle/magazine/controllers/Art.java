@@ -26,59 +26,15 @@ public class Art {
         this.imageDao = imageDao;
     }
 
-//    @GetMapping("/art")
-//    public String artPage(Model model) {
-//
-//        model.addAttribute("artImages", imageDao.findAll());
-////        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//        model.addAttribute("newImage", new Image());
-//
-////        User admin = userDao.getOne(loggedInUser.getId());
-////        model.addAttribute("admin", admin);
-//        return "art";
-//    }
-
-
-//    @GetMapping("/art/{id}")
-//    public String artForm(@PathVariable("id") long id,Model model) {
-
-
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-//        User admin = (User) userDao.findByUsername(loggedInUser.getUsername());
-//
-//        User admin = userDao.getOne(loggedInUser.getId());
-//        model.addAttribute("admin", admin);
-
-//        return "art" + admin;
-//    }
-
 
     @GetMapping("/art")
     public String showCreateForm(Model model) {
-//        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        model.addAttribute("loggedIn", loggedIn);
-//        model.addAttribute("test", userDao.findAll());
+
         model.addAttribute("artImages", imageDao.findAll());
         model.addAttribute("image", new Image());
 
         return "/art";
     }
-
-
-//    @PostMapping("/art")
-//    public String create(
-//            @RequestParam(name = "description") String description, @ModelAttribute Image newImage, Model model
-//    ) {
-//        Image image = new Image();
-//        image.setDescription(description);
-//        imageDao.save(image);
-//        model.addAttribute("newImage", image);
-//
-//        // save the Image ...
-//        return "redirect:/art";
-//    }
 
     @GetMapping("/post")
     public String showPostForm(Image image) {
