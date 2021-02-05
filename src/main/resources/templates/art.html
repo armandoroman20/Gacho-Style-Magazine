@@ -23,7 +23,7 @@
         /*}*/
 
         #app {
-            background: #fff;
+            background: #666666;
             border-radius: 4px;
             padding: 20px;
             transition: all 0.2s;
@@ -139,22 +139,23 @@
     <div class="pic-3">3</div>
     <div class="pic-4">4</div>
 </div>
+<div sec:authorize="isAuthenticated()">
 
-<div id="app">
-    <h1>S3 Uploader Test</h1>
+    <div id="app">
+        <h1>S3 Uploader Test</h1>
 
-    <div v-if="!image">
-        <h2>Select an image</h2>
-        <input type="file" @change="onFileChange">
+        <div v-if="!image">
+            <h2>Select an image</h2>
+            <input type="file" @change="onFileChange">
+        </div>
+        <div v-else>
+            <img :src="image"/>
+            <button v-if="!uploadURL" @click="removeImage">Remove image</button>
+            <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
+        </div>
+        <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
     </div>
-    <div v-else>
-        <img :src="image"/>
-        <button v-if="!uploadURL" @click="removeImage">Remove image</button>
-        <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
-    </div>
-    <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
 </div>
-
 <div sec:authorize="isAuthenticated()">
     <div class="imageForm">
         <form action="#" th:action="@{/addpost}" th:object="${image}" method="post">
@@ -168,13 +169,11 @@
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
 
 
-
             <div class="form-group">
                 <label for="imageUrl"></label>
                 <input type="text" class="form-control" id="imageUrl"
                        th:field="*{image}">
             </div>
-
 
 
             <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
