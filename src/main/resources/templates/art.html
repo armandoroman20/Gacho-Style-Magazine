@@ -166,7 +166,17 @@
             <label for="description">Description</label>
             <input type="text" th:field="*{description}" id="description" placeholder="Description">
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-            <input type="text" th:field="*{image}" id="image">
+
+
+
+            <div class="form-group">
+                <label for="imageUrl"></label>
+                <input type="text" class="form-control" id="imageUrl"
+                       th:field="*{image}">
+            </div>
+
+
+
             <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
             <input type="submit" value="Add Post">
         </form>
@@ -263,6 +273,8 @@
                 console.log('Uploading to: ', response.uploadURL)
                 const imgloc = response.uploadURL.split('?');
                 console.log(imgloc[0]);
+                document.getElementById('imageUrl').value = imgloc[0];
+
                 const result = await fetch(response.uploadURL, {
                     method: 'PUT',
                     body: blobData
