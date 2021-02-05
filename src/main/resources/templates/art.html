@@ -143,12 +143,12 @@
 <div id="app">
     <h1>S3 Uploader Test</h1>
 
-    <div v-if="!image">
+    <div v-if="!img">
         <h2>Select an image</h2>
         <input type="file" @change="onFileChange">
     </div>
     <div v-else>
-        <img :src="image"/>
+        <img :src="img"/>
         <button v-if="!uploadURL" @click="removeImage">Remove image</button>
         <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
     </div>
@@ -157,6 +157,7 @@
 
 <div sec:authorize="isAuthenticated()">
     <div class="imageForm">
+
         <form action="#" th:action="@{/addpost}" th:object="${image}" method="post">
             <h1>Create new post</h1>
             <input type="hidden" th:field="*{id}"/>
@@ -191,6 +192,9 @@
         <div class="signerText col-8 mt-2">
             <h3 class="Description">Description: <a th:text="${image.description}"></a></h3>
         </div>
+        <div class="signerText col-8 mt-2">
+            <h3><a th:text="${image.id}"></a></h3>
+        </div>
         <img width="851px" height="314px" th:src="${image.image}"/>
     </div>
 
@@ -200,6 +204,7 @@
         <!--            th:action="@{/update/{id}(id=${image.id})}"-->
         <!--            th:object="${image}"-->
         <!--            method="post">-->
+
 
         <!--        <label for="imageTitle">Title</label>-->
         <!--        <input type="text" th:field="*{title}" id="imageTitle" placeholder="Title">-->
@@ -217,6 +222,12 @@
     </div>
 </div>
 
+<!--<form th:action="@{/art/create}" th:method="post" th:object="${test}">-->
+<!--    Description:-->
+<!--    <input th:field="*{description}" />-->
+<!--    <br />-->
+<!--    <input type="submit" />-->
+<!--</form>-->
 <script>
     const MAX_IMAGE_SIZE = 1000000
 
