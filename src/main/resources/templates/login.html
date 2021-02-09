@@ -6,15 +6,16 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Log In</title>
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
+<!--<div th:if="${param.error}">-->
+<!--    Invalid Username and Password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--    You have been logged out.-->
+<!--</div>-->
 <div class="container">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
@@ -29,7 +30,7 @@
                                 You have been logged out.
                             </div>
                             <form th:action="@{/login}" method="POST">
-                                <h1 class="row justify-content-center">Login Puto</h1>
+                                <h1 class="row justify-content-center">Hello Mop Arm</h1>
                                 <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" name="username" id="username"
