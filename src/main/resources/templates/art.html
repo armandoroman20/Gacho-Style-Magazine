@@ -97,13 +97,13 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/art">Shop</a>
+                        <a class="nav-link" href="/Shop">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/music">Music</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/shop">Magazine</a>
+                        <a class="nav-link" href="/magazine">Magazine</a>
                     </li>
                 </ul>
             </div>
@@ -139,83 +139,103 @@
     <div class="pic-3">3</div>
     <div class="pic-4">4</div>
 </div>
-<div sec:authorize="isAuthenticated()">
-
-    <div id="app">
-        <h1>S3 Uploader Test</h1>
-
-        <div v-if="!image">
-            <h2>Select an image</h2>
-            <input type="file" @change="onFileChange">
-        </div>
-        <div v-else>
-            <img :src="image"/>
-            <button v-if="!uploadURL" @click="removeImage">Remove image</button>
-            <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
-        </div>
-        <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
-    </div>
-</div>
-<div sec:authorize="isAuthenticated()">
-    <div class="imageForm">
-        <form action="#" th:action="@{/addpost}" th:object="${image}" method="post">
-            <h1>Create new post</h1>
-            <input type="hidden" th:field="*{id}"/>
-            <label for="title">Title</label>
-            <input type="text" th:field="*{title}" id="title" placeholder="Title">
-            <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-            <label for="description">Description</label>
-            <input type="text" th:field="*{description}" id="description" placeholder="Description">
-            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-
-
-            <div class="form-group">
-                <label for="imageUrl"></label>
-                <input type="text" class="form-control" id="imageUrl"
-                       th:field="*{image}">
-            </div>
-
-
-            <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
-            <input type="submit" value="Add Post">
-        </form>
-    </div>
-</div>
-
-<div class="" th:each="image : ${artImages}">
-    <div class="row no-gutters">
-        <div class="signerText col-8 mt-2">
-            <h3 class="Title">Title: <a th:text="${image.title}"></a></h3>
-        </div>
-        <div class="signerText col-8 mt-2">
-            <h3 class="Description">Description: <a th:text="${image.description}"></a></h3>
-        </div>
-        <img width="851px" height="314px" th:src="${image.image}"/>
-    </div>
-
+<!--upload form only on desktop-->
+<div class="d-none d-lg-block d-xl-block">
     <div sec:authorize="isAuthenticated()">
-        <!--    update-->
-        <!--    <form action="#"-->
-        <!--            th:action="@{/update/{id}(id=${image.id})}"-->
-        <!--            th:object="${image}"-->
-        <!--            method="post">-->
 
-        <!--        <label for="imageTitle">Title</label>-->
-        <!--        <input type="text" th:field="*{title}" id="imageTitle" placeholder="Title">-->
-        <!--        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>-->
-        <!--        <label for="ImageDescription">Description</label>-->
-        <!--        <input type="text" th:field="*{description}" id="ImageDescription" placeholder="Description">-->
-        <!--        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>-->
-        <!--        <input type="submit" value="Update Post">-->
+        <div id="app">
+            <h1>S3 Uploader Test</h1>
+
+            <div v-if="!image">
+                <h2>Select an image</h2>
+                <input type="file" @change="onFileChange">
+            </div>
+            <div v-else>
+                <img :src="image"/>
+                <button v-if="!uploadURL" @click="removeImage">Remove image</button>
+                <button v-if="!uploadURL" @click="uploadImage">Upload image</button>
+            </div>
+            <h2 v-if="uploadURL">Success! Image uploaded to bucket.</h2>
+        </div>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <div class="imageForm">
+            <form action="#" th:action="@{/addpost}" th:object="${image}" method="post">
+                <h1>Create new post</h1>
+                <input type="hidden" th:field="*{id}"/>
+                <label for="title">Title</label>
+                <input type="text" th:field="*{title}" id="title" placeholder="Title">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                <label for="description">Description</label>
+                <input type="text" th:field="*{description}" id="description" placeholder="Description">
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
 
 
-        <!--    </form>-->
-        <!--    delete-->
-        <a th:href="@{/edit/{id}(id=${image.id})}">Edit</a>
-        <a th:href="@{/delete/{id}(id=${image.id})}">Delete</a>
+                <div class="form-group">
+                    <label for="imageUrl"></label>
+                    <input type="text" class="form-control" id="imageUrl"
+                           th:field="*{image}">
+                </div>
+
+
+                <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
+                <input type="submit" value="Add Post">
+            </form>
+        </div>
+    </div>
+</div>
+<!--mobile view -->
+<div class="d-block d-sm-block d-md-block d-lg-none">
+    <div class="" th:each="image : ${artImages}">
+        <div class="row no-gutters">
+            <div class="signerText col-8 mt-2">
+                <h3 class="Title">Title: <a th:text="${image.title}"></a></h3>
+            </div>
+            <div class="signerText col-8 mt-2">
+                <h3 class="Description">Description: <a th:text="${image.description}"></a></h3>
+            </div>
+            <img class="responsive" width="300px" height="300px" th:src="${image.image}"/>
+        </div>
     </div>
 </div>
 
+<!--desktop view-->
+<div class="d-none d-lg-block d-xl-block">
+
+    <div class="" th:each="image : ${artImages}">
+        <div class="row no-gutters">
+            <div class="signerText col-8 mt-2">
+                <h3 class="Title">Title: <a th:text="${image.title}"></a></h3>
+            </div>
+            <div class="signerText col-8 mt-2">
+                <h3 class="Description">Description: <a th:text="${image.description}"></a></h3>
+            </div>
+            <img class="responsive" width="300px" height="300px" th:src="${image.image}"/>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <!--    update-->
+            <!--    <form action="#"-->
+            <!--            th:action="@{/update/{id}(id=${image.id})}"-->
+            <!--            th:object="${image}"-->
+            <!--            method="post">-->
+
+            <!--        <label for="imageTitle">Title</label>-->
+            <!--        <input type="text" th:field="*{title}" id="imageTitle" placeholder="Title">-->
+            <!--        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>-->
+            <!--        <label for="ImageDescription">Description</label>-->
+            <!--        <input type="text" th:field="*{description}" id="ImageDescription" placeholder="Description">-->
+            <!--        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>-->
+            <!--        <input type="submit" value="Update Post">-->
+
+
+            <!--    </form>-->
+            <!--    delete-->
+            <a th:href="@{/edit/{id}(id=${image.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${image.id})}">Delete</a>
+        </div>
+    </div>
+</div>
 <script>
     const MAX_IMAGE_SIZE = 1000000
 
