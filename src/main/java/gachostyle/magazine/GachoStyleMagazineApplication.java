@@ -12,9 +12,10 @@ public class GachoStyleMagazineApplication extends SpringBootServletInitializer 
         SpringApplication.run(GachoStyleMagazineApplication.class, args);
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(GachoStyleMagazineApplication.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        return builder.sources(GachoStyleMagazineApplication.class);
+//    }
+
 }
 
