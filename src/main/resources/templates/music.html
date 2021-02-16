@@ -89,7 +89,7 @@
 <section class="musicMobile">
     <div class="d-block d-sm-block d-md-block d-lg-none">
         <div class="jumbotron-fluid">
-                <img th:src="@{/images/zerktronic-music-page.png}" alt="Zerk"
+                <img th:src="@{/images/Zerk-header.png}" alt="Zerk"
                      style="width:100%">
         </div>
         <div class="album1 mt-3">
@@ -133,6 +133,47 @@
                         frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
         </div>
+        <div class="album3 mt-3">
+            <div class="d-flex justify-content-center">
+
+                <h2 style="color:white;">Durty Dishez Vol.1</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+
+                <!-- Trigger/Open The Modal -->
+                <img class="myBtn" th:src="@{/images/durty-dishez-cover.jpg}" alt="Dont_worry_album_art"
+                     style="width:100%;max-width:300px">
+            </div>
+            <!-- The Modal -->
+            <div id="myModal3" class="modal">
+
+                <!-- Modal content -->
+                <span class="close">×</span>
+                <iframe src="https://open.spotify.com/embed/album/6J9L6Dke3fL1gJQjBsIyZq" width="100%" height="480"
+                        frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+        <div class="album4 mt-3">
+            <div class="d-flex justify-content-center">
+
+                <h2 style="color:white;">From The Back</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+
+                <!-- Trigger/Open The Modal -->
+                <img class="myBtn" th:src="@{/images/from-the-back-cover.jpg}" alt="Dont_worry_album_art"
+                     style="width:100%;max-width:300px">
+            </div>
+            <!-- The Modal -->
+            <div id="myModal4" class="modal">
+
+                <!-- Modal content -->
+                <span class="close">×</span>
+                <iframe src="https://open.spotify.com/embed/album/53H9Cy29R8mKYNWE7QuhHg" width="100%"
+                        height="480"
+                        frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
     </div>
 </section>
 </body>
@@ -156,6 +197,13 @@
     btn[1].onclick = function () {
         modal[1].style.display = "block";
     }
+    btn[2].onclick = function () {
+        modal[2].style.display = "block";
+    }
+
+    btn[3].onclick = function () {
+        modal[3].style.display = "block";
+    }
     // When the user clicks on <span> (x), close the modal
     span[0].onclick = function () {
         modal[0].style.display = "none";
@@ -163,6 +211,13 @@
 
     span[1].onclick = function () {
         modal[1].style.display = "none";
+    }
+    span[2].onclick = function () {
+        modal[2].style.display = "none";
+    }
+
+    span[3].onclick = function () {
+        modal[3].style.display = "none";
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
