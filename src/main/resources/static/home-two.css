@@ -55,6 +55,11 @@ body, html {
     margin-right: auto;
 }
 
+.desktop-logo{
+    height:100px;
+    width:100px
+}
+
 /*mobile video*/
 
 .zerkVideo-sm {
