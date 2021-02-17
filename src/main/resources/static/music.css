@@ -14,6 +14,11 @@ body, html{
     overflow: scroll;
 }
 
+.desktop-logo{
+    height:100px;
+    width:100px
+}
+
 .audioControl{
     position: relative;
     width: 100%
