@@ -84,8 +84,7 @@
     <!--    </nav>-->
     <div class="navigation-bar navbar-dark bg-dark">
         <div id="navigation-container">
-            <a class="navbar-brand logo" href="/"><img th:src="@{/images/Gacho-icon-White.png}" title="Gacho icon black"
-                                                       width="100px" height="100px"/></a>
+            <a class="navbar-brand" href="/" ><img th:src="@{/images/Gacho-Icon-White.png}" title="Gacho icon black"/></a>
             <nav class="desktop-nav-links">
                 <ul>
                     <li><a href="art">Art</a></li>
@@ -106,7 +105,7 @@
 <div class="d-none d-lg-block d-xl-block">
     <div class="video-lg d-flex justify-content-center">
         <video controls autoplay muted loop class="zerkVideo-lg">
-            <source th:src="@{../../videos/ZERKTRONIC-DONTWORRY.mp4}" src="/static/videos/ZERKTRONIC-DONTWORRY.mp4"
+            <source th:src="@{/videos/ZERKTRONIC-DONTWORRY.mp4}" src="/static/videos/ZERKTRONIC-DONTWORRY.mp4"
                     type="video/mp4">
         </video>
     </div>
@@ -116,7 +115,7 @@
 <div class="d-block d-sm-block d-md-block d-lg-none">
     <div class="video-sm d-flex justify-content-center">
         <video controls loop class="zerkVideo-sm">
-            <source th:src="@{../../videos/ZERKTRONIC-DONTWORRY.mp4}" src="/static/videos/ZERKTRONIC-DONTWORRY.mp4"
+            <source th:src="@{/videos/ZERKTRONIC-DONTWORRY.mp4}" src="/static/videos/ZERKTRONIC-DONTWORRY.mp4"
                     type="video/mp4">
         </video>
     </div>
